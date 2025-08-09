@@ -33,7 +33,7 @@ namespace ELearning_System.Services
 
         public async Task UpdateStudentAsync(Student student)
         {
-            await studentRepository.UpdateAsync(student);
+            studentRepository.Update(student);
             await studentRepository.SaveAsync();
         }
     }

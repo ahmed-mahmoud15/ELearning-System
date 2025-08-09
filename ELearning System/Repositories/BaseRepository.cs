@@ -42,7 +42,8 @@ namespace ELearning_System.Repositories
             await context.SaveChangesAsync();
         }
 
-        public async Task UpdateAsync(T record)
+
+        public void Update(T record)
         {
             table.Attach(record);
             context.Entry(record).State = EntityState.Modified;
