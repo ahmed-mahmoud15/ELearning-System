@@ -1,33 +1,36 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace ELearning_System.ViewModels
 {
     public class RegisterStudentViewModel
     {
         [Display(Name = "First Name")]
-        [Required]
+        [Required(ErrorMessage = "First name is required.")]
+        [StringLength(20, ErrorMessage = "First name cannot be longer than 20 characters.")]
         public string FirstName { get; set; }
 
         [Display(Name = "Last Name")]
-        [Required]
+        [Required(ErrorMessage = "Last name is required.")]
+        [StringLength(20, ErrorMessage = "Last name cannot be longer than 20 characters.")]
         public string LastName { get; set; }
 
-        [Required]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "Birth Date")]
+        [Required(ErrorMessage = "Birth date is required.")]
+        [DataType(DataType.Date)]
+        public DateTime BirthDate { get; set; }
 
-        [Required]
-        [Display(Name = "User Name")]
-        // implement filter to check this userName is unique
-        public string UserName { get; set; }
+        [Display(Name = "Profile Photo")]
+        [DataType(DataType.Upload)]
+        public string? PhotoPath { get; set; }
 
-        [DataType(DataType.Password)]
-        [Required]
-        public string Password { get; set; }
+        [Display(Name = "Biography")]
+        [StringLength(500, ErrorMessage = "Biography cannot be longer than 500 characters.")]
+        public string? Bio { get; set; } = string.Empty;
 
-        [Required]
-        [DataType(DataType.Password)]
-        [Compare(nameof(Password), ErrorMessage = "Password Doesn't Match")]
-        public string ConfirmPassword { get; set; }
+        [Display(Name = "GitHub Account")]
+        [Url(ErrorMessage = "Please enter a valid URL.")]
+        public string? GitHubAccount { get; set; } = string.Empty;
+
     }
 }
