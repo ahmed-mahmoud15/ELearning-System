@@ -2,7 +2,7 @@
 
 namespace ELearning_System.Services
 {
-    public interface IUserServices
+    public interface IUserService
     {
         Task<IEnumerable<User>> GetAllUsersAsync();
         Task<User> GetUserByIdAsync(int id);

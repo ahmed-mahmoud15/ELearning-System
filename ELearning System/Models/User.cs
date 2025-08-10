@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Identity;
 
 namespace ELearning_System.Models;
 
@@ -19,9 +21,6 @@ public partial class User
 
     public string? Bio { get; set; }
 
-    public virtual AspNetUser Identity { get; set; } = null!;
-
-    public virtual Instructor? Instructor { get; set; }
-
-    public virtual Student? Student { get; set; }
+    [ForeignKey(nameof(IdentityId))]
+    public virtual IdentityUser Identity { get; set; } = null!;
 }

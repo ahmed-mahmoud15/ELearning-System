@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ELearning_System.Models;
 
@@ -15,5 +16,6 @@ public partial class Instructor
 
     public virtual ICollection<Follow> Follows { get; set; } = new List<Follow>();
 
+    [ForeignKey(nameof(Id))]
     public virtual User IdNavigation { get; set; } = null!;
 }
