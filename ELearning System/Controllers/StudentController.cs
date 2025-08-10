@@ -22,16 +22,16 @@ namespace ELearning_System.Controllers
             return View();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Create(RegisterStudentViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                Student student = new Student()
-                {
+       // [HttpPost]
+        //public async Task<IActionResult> Create(RegisterStudentViewModel model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        Student student = new Student()
+        //        {
                     
-                };
-            }
-        }
+        //        };
+        //    }
+        //}
     }
 }
